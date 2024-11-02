@@ -45,3 +45,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 greetFunction()
+
+const script = document.createElement('script');
+script.src = chrome.runtime.getURL('injector.js');
+document.documentElement.appendChild(script);
+script.onload = () => script.remove(); // Видаляємо тег після завантаження
